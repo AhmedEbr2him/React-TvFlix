@@ -1,0 +1,32 @@
+.search_modal {
+  position: fixed;
+  top: 96px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--surface);
+  padding: 50px 24px;
+  overflow-y: overlay;
+  z-index: 4;
+  display: none;
+}
+.search_modal.active {
+  display: block;
+}
+.search_modal .label {
+  color: var(--primary-variant);
+  font-weight: var(--weight-bold);
+  margin-block-end: 8px;
+}
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+/**
+* responsive for larger than 1200px screen
+*/
+@media only screen and (min-width: 1200px) {
+  .search_modal {
+    top: 104px;
+    padding: 60px;
+  }
+}

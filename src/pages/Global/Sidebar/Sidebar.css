@@ -1,0 +1,117 @@
+.sidebar {
+  position: absolute;
+  top: 96px;
+  bottom: 0;
+  left: -340px;
+  background: var(--background);
+  border-block-start: 1px solid var(--banner-background);
+  max-width: 340px;
+  width: 100%;
+  overflow-y: overlay;
+  z-index: 4;
+  visibility: hidden;
+  transition: var(--transition-long);
+}
+
+.sidebar.active {
+  left: 0;
+  visibility: visible;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.sidebar:is(:hover, :focus-visible)::-webkit-scrollbar-thumb {
+  background-color: var(--banner-background);
+}
+.sidebar::-webkit-scrollbar-button {
+  height: 16px;
+}
+.sidebar .logo {
+  padding: 24px 36px;
+}
+.sidebar_inner {
+  display: grid;
+  gap: 20px;
+  padding-block: 36px;
+}
+.sidebar_list,
+.sidebar_footer {
+  padding-inline: 36px;
+}
+.sidebar_list {
+  display: grid;
+  gap: 8px;
+}
+.sidebar_list .title {
+  margin-block-end: 8px;
+}
+.sidebar_link {
+  color: var(--on-surface-variant);
+  transition: var(--transition-short);
+}
+.sidebar_link:is(:hover, :focus-visible) {
+  color: var(--on-background);
+}
+.sidebar_footer {
+  border-block-start: 1px solid var(--banner-background);
+  padding-block-start: 28px;
+  margin-block-start: 16px;
+}
+.copyright {
+  color: var(--on-surface-variant);
+  margin-block-end: 20px;
+}
+.copyright a {
+  display: inline-block;
+}
+.sidebar_footer a {
+  margin-block-end: 20px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-short);
+  z-index: 3;
+}
+.overlay.active {
+  opacity: 0.5;
+  pointer-events: all;
+}
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+/**
+* responsive for larger than 1200px screen
+*/
+@media only screen and (min-width: 1200px) {
+  .sidebar {
+    position: static;
+    visibility: visible;
+    border-block-start: 0;
+    height: calc(100vh - 104px);
+  }
+  .sidebar.active {
+    transform: none;
+  }
+  .sidebar_list,
+  .sidebar_footer {
+    padding-inline: 56px;
+  }
+  .copyright :is(a, span) {
+    font-size: 16px;
+    text-align: left;
+  }
+  .copyright a {
+    display: block;
+    color: inherit;
+  }
+  .copyright a:hover {
+    text-decoration: underline;
+  }
+}

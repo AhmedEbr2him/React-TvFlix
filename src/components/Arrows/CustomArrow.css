@@ -1,0 +1,22 @@
+.arrow {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.arrow svg {
+  cursor: pointer;
+}
+.prev-arrow {
+  left: 0;
+}
+.next-arrow {
+  right: 0;
+}

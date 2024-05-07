@@ -1,0 +1,105 @@
+.header {
+  position: relative;
+  padding-block: 24px;
+  padding-inline: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.header .logo {
+  margin-inline-end: auto;
+}
+.search_btn,
+.menu_btn {
+  padding: 12px;
+}
+.search_btn {
+  background-color: var(--banner-background);
+  border-radius: var(--radius-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_btn img {
+  opacity: 0.5;
+  transition: var(--transition-short);
+}
+.search_btn:is(:hover, :focus-visible) img {
+  opacity: 1;
+}
+.menu_btn.active .menu, /*وعادي من غيره display: none; طالما معاه كلاس اكتيف المينيو هياخد  */
+.menu_btn .close {
+  display: none;
+}
+.menu_btn  .menu, /*وعادي من غيره display: none; طالما معاه كلاس اكتيف الكلوس هياخد  */
+.menu_btn.active .close {
+  display: block;
+}
+.search_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  padding: 24px 16px;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+  display: none;
+}
+.search_box.active {
+  display: flex;
+}
+
+.search_wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+.search_field {
+  background-color: var(--banner-background);
+  height: 48px;
+  line-height: 48px;
+  padding-inline: 44px 16px;
+  outline: none;
+  border-radius: var(--radius-8);
+  transition: var(--transition-short);
+}
+.search_field::placeholder {
+  color: var(--on-surface-variant);
+}
+.search_field:hover {
+  box-shadow: 0 0 0 2px var(--on-surface-variant);
+}
+.search_field:focus {
+  box-shadow: 0 0 0 2px var(--on-surface-variant);
+  padding-inline-start: 16px;
+}
+.search_wrapper .leading_icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  opacity: 0.5;
+  transition: var(--transition-short);
+}
+/* foucs-within => اي عنصر في الكونتينر واخد بيطبق عليه من غير ما يكون اب رئيسي للابن  */
+.search_wrapper:focus-within .leading_icon {
+  opacity: 0;
+}
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 28px 56px;
+  }
+  .logo img {
+    width: 160px;
+  }
+  .menu_btn,
+  .overlay {
+    display: none;
+  }
+}
